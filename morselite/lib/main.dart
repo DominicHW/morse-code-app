@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:torch/torch.dart';
+import 'morse.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,14 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
               controller: textController,
               textAlign: TextAlign.center,
               decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Enter what you want to convert!'
+                hintText: 'What do you wanna flash out?'
               ),
             ),
             RaisedButton(
-              child: Text("Push Me"),
+              child: Text("FLASH IT!"),
               onPressed: (){
-                flash();
+                getFlash();
               })
           ],
         ),
@@ -60,9 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void flash() async {
-    if(await Torch.hasTorch){
-      Torch.flash(Duration(milliseconds: 1000));
-    }
+  //takes the entered sentence, converts to morse and flashes
+  void getFlash() async {
+    String morse = Morse.stringToMorse(textController.text);
+    Morse.flash(morse);
   }
 }
