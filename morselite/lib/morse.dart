@@ -1,7 +1,8 @@
 import 'package:torch/torch.dart';
-import 'dart:io';
 
 class Morse{
+
+  static bool cancel = false;
 
   //each char and equivalent morse code
   static Map<String, String> morseDict = {
@@ -67,8 +68,14 @@ class Morse{
 
     //flashes using the device flashlight for the given morse
     static void flash(String morse) async {
+      cancel = false;
+
       for(int i=0; i<morse.length; i++) {
         String val = morse[i];
+
+        if(cancel){
+          break;
+        }
 
         if(val == "."){
           Torch.flash(Duration(milliseconds: 500));
@@ -88,6 +95,10 @@ class Morse{
         await Future.delayed(Duration(milliseconds: 500));
 
       }
+    }
+
+    static void cancelFlash() async {
+      cancel = true;
     }
 
 
