@@ -67,13 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       drawer: Drawer(
-        child: ListVIew(
+        child: ListView(
           // Remove padding from ListVIew
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               child: Text('Morse Code Symbols'),
-              Decoration: BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.blue,
               ),
             ),
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
             
           ]
         )
-      )
+      ),
 
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
