@@ -66,6 +66,60 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      drawer: Drawer(
+        child: ListVIew(
+          // Remove padding from ListVIew
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Morse Code Symbols'),
+              Decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+
+            ListTile(title: Text('A')),
+            ListTile(title: Text('B')),
+            ListTile(title: Text('C')),
+            ListTile(title: Text('D')),
+            ListTile(title: Text('E')),
+            ListTile(title: Text('F')),
+            ListTile(title: Text('G')),
+            ListTile(title: Text('H')),
+            ListTile(title: Text('I')),
+            ListTile(title: Text('J')),
+            ListTile(title: Text('K')),
+            ListTile(title: Text('L')),
+            ListTile(title: Text('M')),
+            ListTile(title: Text('N')),
+            ListTile(title: Text('O')),
+            ListTile(title: Text('P')),
+            ListTile(title: Text('Q')),
+            ListTile(title: Text('R')),
+            ListTile(title: Text('S')),
+            ListTile(title: Text('T')),
+            ListTile(title: Text('U')),
+            ListTile(title: Text('V')),
+            ListTile(title: Text('W')),
+            ListTile(title: Text('X')),
+            ListTile(title: Text('Y')),
+            ListTile(title: Text('Z')),
+            ListTile(title: Text('0')),
+            ListTile(title: Text('1')),
+            ListTile(title: Text('2')),
+            ListTile(title: Text('3')),
+            ListTile(title: Text('4')),
+            ListTile(title: Text('5')),
+            ListTile(title: Text('6')),
+            ListTile(title: Text('7')),
+            ListTile(title: Text('8')),
+            ListTile(title: Text('9')),
+
+            
+          ]
+        )
+      )
+
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
