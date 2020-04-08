@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MorseLite',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'MorseLite'),
     );
   }
 }
@@ -71,51 +71,156 @@ class _MyHomePageState extends State<MyHomePage> {
           // Remove padding from ListVIew
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Morse Code Symbols'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
+            // Drawer Header, wrapped in container
+            Container(
+              height: 90.0,
+              child: DrawerHeader(
+                child: Text(
+                  'Morse Code Symbols', 
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    )
+                  ),
+                decoration: BoxDecoration(
+                  color: Color(0xff20243C),
+                ),
               ),
             ),
-
-            ListTile(title: Text('A')),
-            ListTile(title: Text('B')),
-            ListTile(title: Text('C')),
-            ListTile(title: Text('D')),
-            ListTile(title: Text('E')),
-            ListTile(title: Text('F')),
-            ListTile(title: Text('G')),
-            ListTile(title: Text('H')),
-            ListTile(title: Text('I')),
-            ListTile(title: Text('J')),
-            ListTile(title: Text('K')),
-            ListTile(title: Text('L')),
-            ListTile(title: Text('M')),
-            ListTile(title: Text('N')),
-            ListTile(title: Text('O')),
-            ListTile(title: Text('P')),
-            ListTile(title: Text('Q')),
-            ListTile(title: Text('R')),
-            ListTile(title: Text('S')),
-            ListTile(title: Text('T')),
-            ListTile(title: Text('U')),
-            ListTile(title: Text('V')),
-            ListTile(title: Text('W')),
-            ListTile(title: Text('X')),
-            ListTile(title: Text('Y')),
-            ListTile(title: Text('Z')),
-            ListTile(title: Text('0')),
-            ListTile(title: Text('1')),
-            ListTile(title: Text('2')),
-            ListTile(title: Text('3')),
-            ListTile(title: Text('4')),
-            ListTile(title: Text('5')),
-            ListTile(title: Text('6')),
-            ListTile(title: Text('7')),
-            ListTile(title: Text('8')),
-            ListTile(title: Text('9')),
-
             
+            ListTile(title: Text('LETTERS', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
+
+            // LETTERS: Morse code text tiles
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('A: .-')),),
+                Expanded(child: ListTile(title: Text('B: -...')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('C: -.-.')),),
+                Expanded(child: ListTile(title: Text('D: -..')),),
+              ],
+            ),
+            
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('E: .')),),
+                Expanded(child: ListTile(title: Text('F: ..-.')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('G: --.')),),
+                Expanded(child: ListTile(title: Text('H: ....')),),
+              ],
+            ),
+            
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('I: ..')),),
+                Expanded(child: ListTile(title: Text('J: .---')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('K: -.-')),),
+                Expanded(child: ListTile(title: Text('L: .-..')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('M: --')),),
+                Expanded(child: ListTile(title: Text('N: -.')),),
+              ],
+            ),
+
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('O: ---')),),
+                Expanded(child: ListTile(title: Text('P: .--.')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('Q: --.-')),),
+                Expanded(child: ListTile(title: Text('R: .-.')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('S: ...')),),
+                Expanded(child: ListTile(title: Text('T: -')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('U: ..-')),),
+                Expanded(child: ListTile(title: Text('V: ...-')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('W: .--')),),
+                Expanded(child: ListTile(title: Text('X: -..-')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('Y: -.--')),),
+                Expanded(child: ListTile(title: Text('Z: --..')),),
+              ],
+            ),
+
+
+            ListTile(title: Text('NUMBERS', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
+
+            // NUMBERS: Morse code text tiles
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('0: -----')),),
+                Expanded(child: ListTile(title: Text('1: .----')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('2: ..---')),),
+                Expanded(child: ListTile(title: Text('3: ...--')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('4: ....-')),),
+                Expanded(child: ListTile(title: Text('5: .....')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('6: -....')),),
+                Expanded(child: ListTile(title: Text('7: --...')),),
+              ],
+            ),
+
+            Row(
+              children: <Widget>[
+                Expanded(child: ListTile(title: Text('8: ---..')),),
+                Expanded(child: ListTile(title: Text('9: ----.')),),
+              ],
+            ),
           ]
         )
       ),
