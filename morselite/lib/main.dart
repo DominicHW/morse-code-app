@@ -37,6 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool active = false;
   bool sosActive = false;
 
+  String currLetter = "A";
+  String currMorse = "..-";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,6 +106,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ]
             ),
+
+            Container(
+              margin: EdgeInsets.only(top:50),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    currLetter,
+                    style: TextStyle(
+                      fontSize:50
+                    ),
+                  ),
+                  Text(
+                    currMorse,
+                    style: TextStyle(
+                      fontSize:25
+                    ),
+                  )
+                ]
+              )
+            )
           ],
         ),
       ),

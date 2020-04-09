@@ -3,6 +3,7 @@ import 'package:torch/torch.dart';
 class Morse{
 
   static bool cancel = false;
+  static int unit = 300;
 
   //each char and equivalent morse code
   static Map<String, String> morseDict = {
@@ -78,27 +79,32 @@ class Morse{
         }
 
         if(val == "."){
-          Torch.flash(Duration(milliseconds: 500));
-          await Future.delayed(Duration(milliseconds: 500));
+          Torch.flash(Duration(milliseconds: unit));
+          await pause(unit);
         }
         else if (val == "-"){
-          Torch.flash(Duration(milliseconds: 1500));
-          await Future.delayed(Duration(milliseconds: 1500));
+          Torch.flash(Duration(milliseconds: 3 * unit));
+          await pause(3 * unit);
         }
         else if (val == "£"){
-          await Future.delayed(Duration(milliseconds: 1500));
+          await pause(3 * unit);
         }
         else if (val == " "){
-          await Future.delayed(Duration(milliseconds: 3000));
+          await pause(6 * unit);
         }
 
-        await Future.delayed(Duration(milliseconds: 500));
+        await pause(unit);
 
       }
     }
 
     static void cancelFlash() async {
       cancel = true;
+    }
+
+    static Future<int> pause(int millis) async{
+      await Future.delayed(Duration(milliseconds: millis));
+      return 1;
     }
 
 
