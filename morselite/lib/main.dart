@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //letter and morse currently being flashed
   String currLetter = "A";
-  String currMorse = "..-";
+  String currMorse = ".-";
 
   @override
   Widget build(BuildContext context) {
