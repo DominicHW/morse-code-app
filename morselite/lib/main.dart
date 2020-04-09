@@ -37,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   bool sosActive = false;
 
   //letter and morse currently being flashed
-  String currLetter = "A";
-  String currMorse = ".-";
+  String currLetter = "";
+  String currMorse = "";
 
   @override
   Widget build(BuildContext context) {
@@ -193,6 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     //changes back to default text etc from before flash
+    updateLetters("", "");
     cancelFlash();
   }
 
@@ -234,6 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     //changes back to default text etc from before flash
+    updateLetters("", "");
     cancelSOS();
   }
 
