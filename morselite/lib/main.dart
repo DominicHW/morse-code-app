@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:torch/torch.dart';
 import 'morse.dart';
 
 void main() => runApp(MyApp());
@@ -34,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String buttonText = "FLASH IT!";
   bool active = false;
 
+  // App drawer with Morse representations
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,12 +58,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             
+
+            // Beginning of text
             ListTile(title: Text('LETTERS', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
 
-            // LETTERS: Morse code text tiles
+            // LETTERS: Morse code text tiles, press on boxes to copy the Morse code
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('A: .-')),),
+                Expanded(child: ListTile(title: Text('A: .-'), onTap: () {Clipboard.setData(new ClipboardData(text: ".-"));}),),
                 Expanded(child: ListTile(title: Text('B: -...')),),
               ],
             ),
