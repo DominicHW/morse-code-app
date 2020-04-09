@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MorseLite',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      color: Color(0xff20243C),
+      // theme: ThemeData(
+      //   primarySwatch: Color(0xff20243C),
+      // ),
       home: MyHomePage(title: 'MorseLite'),
     );
   }
@@ -66,42 +67,42 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            Container(
-              margin: EdgeInsets.only(top:10),
-              child: RaisedButton(
-                child: Text(buttonText),
-                onPressed: (){
-                  if(!active){
-                    startFlash();
-                  }
-                  else{
-                    cancelFlash();
-                  }
-                }
-              )
-            ),
+            Row(  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
 
-            Container(
-              margin: EdgeInsets.only(top:70),
-              child: RawMaterialButton(
-                onPressed: () {
-                  if(sosActive){
-                    cancelSOS();
-                  }
-                  else{
-                    sosFlash();
-                  }
-                },
-                child: Text(
-                  sosText,
-                  textAlign: TextAlign.center
+                Container(
+                  child: RaisedButton(
+                    child: Text(buttonText),
+                    onPressed: (){
+                      if(!active){
+                        startFlash();
+                      }
+                      else{
+                        cancelFlash();
+                      }
+                    }
+                  )
                 ),
-                shape: CircleBorder(),
-                elevation: 2.0,
-                fillColor: Colors.white,
-                padding: const EdgeInsets.all(50.0),
-              ),
-            )
+
+                Container(
+                  child: RaisedButton(
+                    onPressed: () {
+                      if(sosActive){
+                        cancelSOS();
+                      }
+                      else{
+                        sosFlash();
+                      }
+                    },
+                    child: Text(
+                      sosText,
+                      textAlign: TextAlign.center
+                    ),
+                  ),
+                )
+              ]
+            ),
           ],
         ),
       ),
