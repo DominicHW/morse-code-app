@@ -68,7 +68,7 @@ class Morse{
     }
 
     //flashes using the device flashlight for the given morse
-    static void flash(String morse) async {
+    static Future<bool> flash(String morse) async {
       cancel = false;
 
       for(int i=0; i<morse.length; i++) {
@@ -96,6 +96,8 @@ class Morse{
         await pause(unit);
 
       }
+
+      return true;
     }
 
     static void cancelFlash() async {

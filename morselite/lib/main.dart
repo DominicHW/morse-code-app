@@ -146,7 +146,11 @@ class _MyHomePageState extends State<MyHomePage> {
       active = true;
     });
 
-    Morse.flash(morse);
+    Morse.flash(morse).whenComplete((){
+      cancelFlash();
+    });
+
+    
   }
 
   //flashes sos
@@ -163,7 +167,9 @@ class _MyHomePageState extends State<MyHomePage> {
       sosText = "CANCEL";
     });
 
-    Morse.flash(morse);
+    Morse.flash(morse).whenComplete((){
+      cancelSOS();
+    });
   }
 
   //cancelrs the flash currently in progress
