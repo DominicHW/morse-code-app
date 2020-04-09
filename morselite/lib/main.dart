@@ -129,13 +129,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   Text(
                     currLetter,
                     style: TextStyle(
-                      fontSize:50
+                      fontSize: 50,
+                      color: Colors.white
                     ),
                   ),
                   Text(
                     currMorse,
                     style: TextStyle(
-                      fontSize:25
+                      fontSize: 25,
+                      color: Colors.white
                     ),
                   )
                 ]
@@ -258,7 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //syncs the letter currently being flashed with one on screen
   void updateLetters(String letter, String morse){
     setState(() {
-      currLetter = letter;
+      currLetter = letter.toUpperCase();
       currMorse = morse;
     });
   }
