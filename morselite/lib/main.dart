@@ -31,12 +31,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final textController = TextEditingController();
 
+  //button texts
   String buttonText = "FLASH IT!";
   String sosText = "SOS";
 
+  //if buttons are currently in use
   bool active = false;
   bool sosActive = false;
 
+  //letter and morse currently being flashed
   String currLetter = "A";
   String currMorse = "..-";
 
@@ -134,45 +137,93 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //takes the entered sentence, converts to morse and flashes
   void startFlash() async {
-
+    //cancels the sos flash if currently active
     if(sosActive){
       cancelSOS();
     }
 
     String morse = Morse.stringToMorse(textController.text);
 
+    //change the text of the button
     setState(() {
       buttonText = "CANCEL FLASHING";
       active = true;
     });
 
-    Morse.flash(morse).whenComplete((){
-      cancelFlash();
-    });
+    List<String> morseWords = morse.split(" ");
 
-    
+    int stringLetter = 0;
+
+    //go through each word in the given string
+    for(int i=0; i < morseWords.length; i++) {
+      String word = morseWords[i];
+      List<String> letters = word.split("£");
+      letters.removeLast();
+
+      //go through each letter in the given word, update the letters
+      //on screen and flash the current letter
+      for(int j=0; j< letters.length; j++) {
+        String letter = letters[j];
+
+        if(active == false || letter == " "){
+          break;
+        }
+
+        updateLetters(textController.text[stringLetter], letter);
+        await Morse.flashLetter(letter);
+
+        stringLetter += 1;
+      }
+
+      await Morse.pause(3 * 300);
+    }
+
+    //changes back to default text etc from before flash
+    cancelFlash();
   }
 
   //flashes sos
   void sosFlash() async {
 
+    //if the string flash is on, stop it
     if(active){
       cancelFlash();
     }
 
-    String morse = Morse.stringToMorse("SOS");
+    String sos = "SOS";
+    String morse = Morse.stringToMorse(sos);
 
     setState(() {
       sosActive = true;
       sosText = "CANCEL";
     });
 
-    Morse.flash(morse).whenComplete((){
-      cancelSOS();
-    });
+    //tracks what letter we're currently on
+    int stringLetter = 0;
+
+    List<String> letters = morse.split("£");
+    letters.removeLast();
+
+    //goes through each letter, updates the letter on screen and flashes
+    for(int j=0; j< letters.length; j++) {
+      String letter = letters[j];
+
+      if(sosActive == false || letter == " "){
+        break;
+      }
+
+      //update letters on screen and flash
+      updateLetters(sos[stringLetter], letter);
+      await Morse.flashLetter(letter);
+      
+      stringLetter += 1;
+    }
+
+    //changes back to default text etc from before flash
+    cancelSOS();
   }
 
-  //cancelrs the flash currently in progress
+  //cancels the flash currently in progress
   void cancelFlash(){
     Morse.cancelFlash();
 
@@ -189,6 +240,14 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       sosActive = false;
       sosText = "SOS";
+    });
+  }
+
+  //syncs the letter currently being flashed with one on screen
+  void updateLetters(String letter, String morse){
+    setState(() {
+      currLetter = letter;
+      currMorse = morse;
     });
   }
 }

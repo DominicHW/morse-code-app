@@ -1,4 +1,5 @@
 import 'package:torch/torch.dart';
+import 'main.dart';
 
 class Morse{
 
@@ -68,7 +69,7 @@ class Morse{
     }
 
     //flashes using the device flashlight for the given morse
-    static Future<bool> flash(String morse) async {
+    static Future<bool> flashFullString(String morse) async {
       cancel = false;
 
       for(int i=0; i<morse.length; i++) {
@@ -96,6 +97,36 @@ class Morse{
         await pause(unit);
 
       }
+
+      return true;
+    }
+
+    //flashes using the device flashlight for the given morse
+    static Future<bool> flashLetter(String morse) async {
+
+      print(morse);
+      cancel = false;
+
+      for(int i=0; i<morse.length; i++) {
+        String val = morse[i];
+
+        if(cancel){
+          break;
+        }
+
+        if(val == "."){
+          Torch.flash(Duration(milliseconds: unit));
+          await pause(unit);
+        }
+        else if (val == "-"){
+          Torch.flash(Duration(milliseconds: 3 * unit));
+          await pause(3 * unit);
+        }
+
+        await pause(unit);
+      }
+
+      await pause(3 * unit);
 
       return true;
     }
