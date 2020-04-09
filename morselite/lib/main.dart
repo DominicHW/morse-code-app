@@ -10,10 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MorseLite',
       color: Color(0xff20243C),
-      // theme: ThemeData(
-      //   primarySwatch: Color(0xff20243C),
-      // ),
-      home: MyHomePage(title: 'MorseLite'),
+      home: MyHomePage(title: 'MorseLite',),
     );
   }
 }
@@ -40,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff20243C),
+
       // App drawer with Morse representations
       drawer: Drawer(
         child: getList()
@@ -48,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // Top application bar
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Color(0xff20243C),
       ),
       
       // Body content of main page
@@ -58,10 +58,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: 250,
               child: TextField(
+                style: new TextStyle(color: Colors.white),
                 controller: textController,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  hintText: 'What do you wanna flash out?'
+                  hintText: 'What do you wanna flash out?',
+                  hintStyle: TextStyle(color: Colors.white54),
+                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+                  counterStyle: TextStyle(color: Colors.white54)
                 ),
                 maxLength: 50,
               ),
@@ -70,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(  
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                
+                // Flash button
                 Container(
                   child: RaisedButton(
                     child: Text(buttonText),
@@ -85,8 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                 ),
 
+                // SOS button
                 Container(
                   child: RaisedButton(
+                    color: Colors.red[700],
+                    textColor: Colors.white,
                     onPressed: () {
                       if(sosActive){
                         cancelSOS();
