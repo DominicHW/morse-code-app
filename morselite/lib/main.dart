@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import 'package:torch/torch.dart';
 import 'morse.dart';
 
 void main() => runApp(MyApp());
