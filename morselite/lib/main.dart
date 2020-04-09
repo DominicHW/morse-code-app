@@ -29,8 +29,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final textController = TextEditingController();
+
   String buttonText = "FLASH IT!";
+  String sosText = "SOS";
+
   bool active = false;
+  bool sosActive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +80,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
               )
             ),
+
+            Container(
+              margin: EdgeInsets.only(top:70),
+              child: RawMaterialButton(
+                onPressed: () {
+                  if(sosActive){
+                    cancelSOS();
+                  }
+                  else{
+                    sosFlash();
+                  }
+                },
+                child: Text(
+                  sosText,
+                  textAlign: TextAlign.center
+                ),
+                shape: CircleBorder(),
+                elevation: 2.0,
+                fillColor: Colors.white,
+                padding: const EdgeInsets.all(50.0),
+              ),
+            )
           ],
         ),
       ),
@@ -84,11 +110,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //takes the entered sentence, converts to morse and flashes
   void startFlash() async {
+
+    if(sosActive){
+      cancelSOS();
+    }
+
     String morse = Morse.stringToMorse(textController.text);
 
     setState(() {
       buttonText = "CANCEL FLASHING";
       active = true;
+    });
+
+    Morse.flash(morse);
+  }
+
+  //takes the entered sentence, converts to morse and flashes
+  void sosFlash() async {
+
+    if(active){
+      cancelFlash();
+    }
+
+    String morse = Morse.stringToMorse("SOS");
+
+    setState(() {
+      sosActive = true;
+      sosText = "CANCEL";
     });
 
     Morse.flash(morse);
@@ -100,6 +148,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       buttonText = "FLASH IT!";
       active = false;
+    });
+  }
+
+  void cancelSOS(){
+    Morse.cancelFlash();
+
+    setState(() {
+      sosActive = false;
+      sosText = "SOS";
     });
   }
 }
