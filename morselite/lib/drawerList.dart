@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 // App drawer, contains the Morse code translations of alphanumeric chars (a-z0-9)
 ListView getList(){
@@ -30,93 +31,93 @@ ListView getList(){
             // LETTERS: Morse code text tiles, press on each tile to copy the Morse
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('A: .-'), onTap: () {Clipboard.setData(new ClipboardData(text: ".-"));}),),
-                Expanded(child: ListTile(title: Text('B: -...')),),
+                Expanded(child: ListTile(title: Text('A: .-'), onTap: () {Clipboard.setData(new ClipboardData(text: ".-")); showToast();}),),
+                Expanded(child: ListTile(title: Text('B: -...'), onTap: () {Clipboard.setData(new ClipboardData(text: "-...")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('C: -.-.')),),
-                Expanded(child: ListTile(title: Text('D: -..')),),
+                Expanded(child: ListTile(title: Text('C: -.-.'), onTap: () {Clipboard.setData(new ClipboardData(text: "-.-.")); showToast();}),),
+                Expanded(child: ListTile(title: Text('D: -..'), onTap: () {Clipboard.setData(new ClipboardData(text: "-..")); showToast();}),),
               ],
             ),
             
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('E: .')),),
-                Expanded(child: ListTile(title: Text('F: ..-.')),),
+                Expanded(child: ListTile(title: Text('E: .'), onTap: () {Clipboard.setData(new ClipboardData(text: ".")); showToast();}),),
+                Expanded(child: ListTile(title: Text('F: ..-.'), onTap: () {Clipboard.setData(new ClipboardData(text: "..-.")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('G: --.')),),
-                Expanded(child: ListTile(title: Text('H: ....')),),
+                Expanded(child: ListTile(title: Text('G: --.'), onTap: () {Clipboard.setData(new ClipboardData(text: "--.")); showToast();}),),
+                Expanded(child: ListTile(title: Text('H: ....'), onTap: () {Clipboard.setData(new ClipboardData(text: "....")); showToast();}),),
               ],
             ),
             
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('I: ..')),),
-                Expanded(child: ListTile(title: Text('J: .---')),),
+                Expanded(child: ListTile(title: Text('I: ..'), onTap: () {Clipboard.setData(new ClipboardData(text: "..")); showToast();}),),
+                Expanded(child: ListTile(title: Text('J: .---'), onTap: () {Clipboard.setData(new ClipboardData(text: ".---")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('K: -.-')),),
-                Expanded(child: ListTile(title: Text('L: .-..')),),
+                Expanded(child: ListTile(title: Text('K: -.-'), onTap: () {Clipboard.setData(new ClipboardData(text: "-.-")); showToast();}),),
+                Expanded(child: ListTile(title: Text('L: .-..'), onTap: () {Clipboard.setData(new ClipboardData(text: ".-..")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('M: --')),),
-                Expanded(child: ListTile(title: Text('N: -.')),),
+                Expanded(child: ListTile(title: Text('M: --'), onTap: () {Clipboard.setData(new ClipboardData(text: "--")); showToast();}),),
+                Expanded(child: ListTile(title: Text('N: -.'), onTap: () {Clipboard.setData(new ClipboardData(text: "-.")); showToast();}),),
               ],
             ),
 
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('O: ---')),),
-                Expanded(child: ListTile(title: Text('P: .--.')),),
+                Expanded(child: ListTile(title: Text('O: ---'), onTap: () {Clipboard.setData(new ClipboardData(text: "---")); showToast();}),),
+                Expanded(child: ListTile(title: Text('P: .--.'), onTap: () {Clipboard.setData(new ClipboardData(text: ".--.")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('Q: --.-')),),
-                Expanded(child: ListTile(title: Text('R: .-.')),),
+                Expanded(child: ListTile(title: Text('Q: --.-'), onTap: () {Clipboard.setData(new ClipboardData(text: "--.-")); showToast();}),),
+                Expanded(child: ListTile(title: Text('R: .-.'), onTap: () {Clipboard.setData(new ClipboardData(text: ".-.")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('S: ...')),),
-                Expanded(child: ListTile(title: Text('T: -')),),
+                Expanded(child: ListTile(title: Text('S: ...'), onTap: () {Clipboard.setData(new ClipboardData(text: "...")); showToast();}),),
+                Expanded(child: ListTile(title: Text('T: -'), onTap: () {Clipboard.setData(new ClipboardData(text: "-")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('U: ..-')),),
-                Expanded(child: ListTile(title: Text('V: ...-')),),
+                Expanded(child: ListTile(title: Text('U: ..-'), onTap: () {Clipboard.setData(new ClipboardData(text: "..-")); showToast();}),),
+                Expanded(child: ListTile(title: Text('V: ...-'), onTap: () {Clipboard.setData(new ClipboardData(text: "...-")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('W: .--')),),
-                Expanded(child: ListTile(title: Text('X: -..-')),),
+                Expanded(child: ListTile(title: Text('W: .--'), onTap: () {Clipboard.setData(new ClipboardData(text: ".--")); showToast();}),),
+                Expanded(child: ListTile(title: Text('X: -..-'), onTap: () {Clipboard.setData(new ClipboardData(text: "-..-")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('Y: -.--')),),
-                Expanded(child: ListTile(title: Text('Z: --..')),),
+                Expanded(child: ListTile(title: Text('Y: -.--'), onTap: () {Clipboard.setData(new ClipboardData(text: "-.--")); showToast();}),),
+                Expanded(child: ListTile(title: Text('Z: --..'), onTap: () {Clipboard.setData(new ClipboardData(text: "--..")); showToast();}),),
               ],
             ),
 
@@ -126,38 +127,50 @@ ListView getList(){
             // NUMBERS: Morse code text tiles, press on each tile to copy the Morse
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('0: -----')),),
-                Expanded(child: ListTile(title: Text('1: .----')),),
+                Expanded(child: ListTile(title: Text('0: -----'), onTap: () {Clipboard.setData(new ClipboardData(text: "-----")); showToast();}),),
+                Expanded(child: ListTile(title: Text('1: .----'), onTap: () {Clipboard.setData(new ClipboardData(text: ".----")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('2: ..---')),),
-                Expanded(child: ListTile(title: Text('3: ...--')),),
+                Expanded(child: ListTile(title: Text('2: ..---'), onTap: () {Clipboard.setData(new ClipboardData(text: "..---")); showToast();}),),
+                Expanded(child: ListTile(title: Text('3: ...--'), onTap: () {Clipboard.setData(new ClipboardData(text: "...--")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('4: ....-')),),
-                Expanded(child: ListTile(title: Text('5: .....')),),
+                Expanded(child: ListTile(title: Text('4: ....-'), onTap: () {Clipboard.setData(new ClipboardData(text: "....-")); showToast();}),),
+                Expanded(child: ListTile(title: Text('5: .....'), onTap: () {Clipboard.setData(new ClipboardData(text: ".....")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('6: -....')),),
-                Expanded(child: ListTile(title: Text('7: --...')),),
+                Expanded(child: ListTile(title: Text('6: -....'), onTap: () {Clipboard.setData(new ClipboardData(text: "-....")); showToast();}),),
+                Expanded(child: ListTile(title: Text('7: --...'), onTap: () {Clipboard.setData(new ClipboardData(text: "--...")); showToast();}),),
               ],
             ),
 
             Row(
               children: <Widget>[
-                Expanded(child: ListTile(title: Text('8: ---..')),),
-                Expanded(child: ListTile(title: Text('9: ----.')),),
+                Expanded(child: ListTile(title: Text('8: ---..'), onTap: () {Clipboard.setData(new ClipboardData(text: "---..")); showToast();}),),
+                Expanded(child: ListTile(title: Text('9: ----.'), onTap: () {Clipboard.setData(new ClipboardData(text: "----.")); showToast();}),),
               ],
             ),
           ]
         );
+}
+
+void showToast() {
+  Fluttertoast.showToast(
+        msg: "Morse code copied",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Color(0xff20243C),
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
 }
