@@ -164,9 +164,10 @@ ListView getList(){
 }
 
 void showToast() {
+  Fluttertoast.cancel();
   Fluttertoast.showToast(
         msg: "Morse code copied",
-        toastLength: Toast.LENGTH_LONG,
+        toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
         backgroundColor: Color(0xff20243C),
