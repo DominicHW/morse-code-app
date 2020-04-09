@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   torch: ^0.1.1
   flutter_launcher_icons: ^0.7.4
+  fluttertoast: ^4.0.1
 
 dev_dependencies:
   flutter_test:
