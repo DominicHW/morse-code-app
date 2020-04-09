@@ -1,4 +1,4 @@
-package com.example.morselite
+package com.morse.lite
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
