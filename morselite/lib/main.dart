@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Morse.flash(morse);
   }
 
-  //takes the entered sentence, converts to morse and flashes
+  //flashes sos
   void sosFlash() async {
 
     if(active){
@@ -142,6 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Morse.flash(morse);
   }
 
+  //cancelrs the flash currently in progress
   void cancelFlash(){
     Morse.cancelFlash();
 
@@ -151,6 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  //cancels the sos flash currently in progress
   void cancelSOS(){
     Morse.cancelFlash();
 
