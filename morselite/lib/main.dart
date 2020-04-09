@@ -9,10 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MorseLite',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'MorseLite'),
+      color: Color(0xff20243C),
+      home: MyHomePage(title: 'MorseLite',),
     );
   }
 }
@@ -39,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff20243C),
+
       // App drawer with Morse representations
       drawer: Drawer(
         child: getList()
@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // Top application bar
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Color(0xff20243C),
       ),
       
       // Body content of main page
@@ -57,51 +58,63 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: 250,
               child: TextField(
+                style: new TextStyle(color: Colors.white),
                 controller: textController,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  hintText: 'What do you wanna flash out?'
+                  hintText: 'What do you wanna flash out?',
+                  hintStyle: TextStyle(color: Colors.white54),
+                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.red)),
+                  counterStyle: TextStyle(color: Colors.white54)
                 ),
                 maxLength: 50,
               ),
             ),
 
-            Container(
-              margin: EdgeInsets.only(top:10),
-              child: RaisedButton(
-                child: Text(buttonText),
-                onPressed: (){
-                  if(!active){
-                    startFlash();
-                  }
-                  else{
-                    cancelFlash();
-                  }
-                }
-              )
-            ),
-
-            Container(
-              margin: EdgeInsets.only(top:70),
-              child: RawMaterialButton(
-                onPressed: () {
-                  if(sosActive){
-                    cancelSOS();
-                  }
-                  else{
-                    sosFlash();
-                  }
-                },
-                child: Text(
-                  sosText,
-                  textAlign: TextAlign.center
+            Row(  
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                
+                // Flash button
+                Container(
+                  child: RaisedButton(
+                    child: Text(buttonText),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                    onPressed: (){
+                      if(!active){
+                        startFlash();
+                      }
+                      else{
+                        cancelFlash();
+                      }
+                    }
+                  )
                 ),
-                shape: CircleBorder(),
-                elevation: 2.0,
-                fillColor: Colors.white,
-                padding: const EdgeInsets.all(50.0),
-              ),
-            )
+
+                // SOS button
+                Container(
+                  margin: EdgeInsets.only(left:30),
+                  child: RaisedButton(
+                    color: Colors.red[700],
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
+                    onPressed: () {
+                      if(sosActive){
+                        cancelSOS();
+                      }
+                      else{
+                        sosFlash();
+                      }
+                    },
+                    child: Text(
+                      sosText,
+                      textAlign: TextAlign.center
+                    ),
+                  ),
+                )
+              ]
+            ),
           ],
         ),
       ),
