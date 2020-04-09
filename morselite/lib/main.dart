@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   child: RaisedButton(
                     child: Text(buttonText),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                     onPressed: (){
                       if(!active){
                         startFlash();
@@ -96,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: RaisedButton(
                     color: Colors.red[700],
                     textColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                     onPressed: () {
                       if(sosActive){
                         cancelSOS();
