@@ -94,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 // SOS button
                 Container(
+                  margin: EdgeInsets.only(left:30),
                   child: RaisedButton(
                     color: Colors.red[700],
                     textColor: Colors.white,
